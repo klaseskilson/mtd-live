@@ -1,6 +1,6 @@
 Meteor.methods({
   createEntry: function(text, name) {
-    Entries.insert({text: text, name: name, createdAt: new Date()})
+    Entries.insert({text: text, name: name, createdAt: new Date(), hide: true});
   },
   refreshTwitter: function() {
     console.log('Refreshing twitter feed...');
@@ -20,7 +20,7 @@ Meteor.methods({
             name: status.user.name});
         }
       });
-      console.log('Sample entry: ', Entries.findOne());
+      // console.log('Sample entry: ', Entries.findOne());
       // set next update url
       // Settings.upsert({key: 'twitter'}, {$set: {refresh_url: data.refresh_url}});
     }, function(e) {
@@ -32,14 +32,20 @@ Meteor.methods({
     // collect tweets
     Twit.get('search/tweets',
       {
-        q: '#MTD2015 OR #askmtd since:2014-09-01 -filter:retweets',
+        q: '#askmtd since:2014-09-01 -filter:retweets',
         count: 20
       },
       // use our apply-method when we recieve the tweets
       boundRefreshTwitter
     );
   },
-  admin_route: function() {
-    return process.env.ADMIN_ROUTE;
+  setMessage: function(message) {
+    Settings.upsert({key: 'message'}, {$set:{value: message}});
+  },
+  setStatus: function(id, status) {
+    Entries.update(id, {$set:{hide: status}});
+  },
+  deleteEntry: function(id, status) {
+    Entries.remove(id);
   }
 });

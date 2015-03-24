@@ -1,0 +1,55 @@
+<template name="admin">
+  <div class="c-container">
+    <h1>Admin</h1>
+
+    <h2>
+      Stort meddelande
+    </h2>
+    <p>
+      {{message.value}}
+    </p>
+    <form class="js-message">
+      <textarea placeholder="Eventuellt stort meddelande..." name="message"></textarea>
+      <button class="button--wide">
+        <i class="fa fa-check-circle"></i>
+        Skicka
+      </button>
+    </form>
+
+    <h2>
+      Frågor
+    </h2>
+    {{#each feed}}
+      {{> admin_entry}}
+    {{/each}}
+
+    <h2>
+      Twitter
+    </h2>
+    <button class="button--wide js-update-twitter" type="button">
+      Uppdatera twitter-feed
+    </button>
+  </div>
+</template>
+
+<template name="admin_entry">
+  <article>
+    <p>
+      <strong>
+        {{text}}
+      </strong>
+      av {{name}}.
+      <a href="#" class="js-toggle">
+        {{#if hide}}
+          Visa
+        {{else}}
+          Dölj
+        {{/if}}
+      </a>
+      <a href="#" class="js-delete">
+        <i class="fa fa-trash"></i>
+        Ta bort
+      </a>
+    </p>
+  </article>
+</template>

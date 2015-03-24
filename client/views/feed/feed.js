@@ -1,4 +1,5 @@
 Meteor.subscribe('entries');
+
 String.prototype.parseURL = function() {
   return this.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&~\?\/.=]+/g, function(url) {
     return url.link(url);
@@ -19,7 +20,12 @@ String.prototype.parseHashtag = function() {
 
 Template.feed.helpers({
   entries: function() {
-    return Entries.find({}, {sort: {createdAt: -1}, limit: 50});
+    return Entries.find({
+      $or: [
+        { "hide": { $exists: false } },
+        { "hide": null },
+        { "hide": false }
+      ]}, {sort: {createdAt: -1}, limit: 50});
   }
 });
 
