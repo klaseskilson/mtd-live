@@ -3,13 +3,17 @@
     <h1>Admin</h1>
 
     <h2>
-      Stort meddelande
+      Stort meddelande {{nightmode}}
     </h2>
     <p>
       {{message.value}}
     </p>
     <form class="js-message">
       <textarea placeholder="Eventuellt stort meddelande..." name="message"></textarea>
+      <label>
+        <input type="checkbox" value="true" class="js-toggle-nigthmode" name="mode">
+        mörk
+      </label>
       <button class="button--wide">
         <i class="fa fa-check-circle"></i>
         Skicka

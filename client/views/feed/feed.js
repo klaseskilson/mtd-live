@@ -35,8 +35,6 @@ Template.entry.helpers({
   },
   getImage: function() {
     if (!this.tweet || !this.tweet.entities || !this.tweet.entities.media) return null;
-    console.log(this);
-
     return this.tweet.entities.media[0].media_url;
   }
 });

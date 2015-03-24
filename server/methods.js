@@ -39,13 +39,18 @@ Meteor.methods({
       boundRefreshTwitter
     );
   },
-  setMessage: function(message) {
-    Settings.upsert({key: 'message'}, {$set:{value: message}});
+  setMessage: function(message, mode) {
+    Settings.upsert({key: 'message'}, {$set:{value: message, nightmode: mode}});
   },
   setStatus: function(id, status) {
     Entries.update(id, {$set:{hide: status}});
   },
   deleteEntry: function(id, status) {
     Entries.remove(id);
+  },
+  toggleNightmode: function(value) {
+    console.log('setting night mode: ', value);
+    Entries.upsert({key: 'nigthmode'}, {$set: {value: value}});
+    Entries.findOne({key: 'nigthmode'});
   }
 });

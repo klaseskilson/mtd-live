@@ -1,8 +1,8 @@
 <template name="message">
   {{#if big_message}}
-    <div class="c-super-overlay">
+    <div class="c-super-overlay {{#if big_message.nightmode}}c-super-overlay--nightmode{{/if}}">
       <div class="c-super-overlay__content">
-        {{{big_message}}}
+        {{{big_message.value}}}
       </div>
     </div>
   {{/if}}
