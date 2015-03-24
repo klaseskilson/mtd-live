@@ -1,0 +1,16 @@
+<template name="feed">
+  {{#each entries}}
+    {{> entry}}
+  {{/each}}
+</template>
+
+<template name="entry">
+  <article>
+    {{#if tweet}}
+      {{tweet.text}}
+    {{else}}
+      {{text}}, {{name}}
+    {{/if}}
+  </article>
+</template>
+
