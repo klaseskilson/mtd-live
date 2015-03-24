@@ -8,5 +8,6 @@
       "key": "xxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "secret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     }
-  }
+  },
+  "admin_route": "random-string-here"
 }

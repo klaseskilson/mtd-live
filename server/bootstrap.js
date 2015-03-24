@@ -11,4 +11,6 @@ Meteor.startup(function () {
     access_token: conf.twitter.access_token.key,
     access_token_secret: conf.twitter.access_token.secret
   });
+
+  process.env.ADMIN_ROUTE = conf.admin_route;
 });

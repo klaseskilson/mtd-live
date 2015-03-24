@@ -9,14 +9,14 @@ Meteor.methods({
       // loop over statuses
       _(data.statuses).each(function(status) {
         console.log('Appending tweet to db');
-        console.log(status)
+        // console.log(status)
         var now = new Date();
         // insert or update tweets
         if (Entries.findOne({'tweet_id': status.id})) {
           Entries.update({'tweet_id': status.id}, {$set: {tweet: status}});
 
         } else {
-          Entries.insert({createdAt: now.getTime(), tweet: status, tweet_id: status.id,
+          Entries.insert({createdAt: now, tweet: status, tweet_id: status.id,
             name: status.user.name});
         }
       });
@@ -32,11 +32,14 @@ Meteor.methods({
     // collect tweets
     Twit.get('search/tweets',
       {
-        q: '#MTD2015 OR #askmtd since:2014-09-01',
+        q: '#MTD2015 OR #askmtd since:2014-09-01 -filter:retweets',
         count: 20
       },
       // use our apply-method when we recieve the tweets
       boundRefreshTwitter
     );
+  },
+  admin_route: function() {
+    return process.env.ADMIN_ROUTE;
   }
 });

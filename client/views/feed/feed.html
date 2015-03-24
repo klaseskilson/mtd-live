@@ -1,16 +1,41 @@
 <template name="feed">
-  {{#each entries}}
-    {{> entry}}
-  {{/each}}
+  <div class="c-container">
+    {{#each entries}}
+      {{> entry}}
+    {{/each}}
+
+    {{> footer}}
+  </div>
 </template>
 
 <template name="entry">
-  <article>
-    {{#if tweet}}
-      {{tweet.text}}
-    {{else}}
-      {{text}}, {{name}}
+  <article class="c-entry {{#if getImage}}c-entry--has-image{{/if}}">
+    {{#if getImage}}
+    <!-- <div class="c-entry__image">
+      <img src="{{getImage}}">
+    </div> -->
     {{/if}}
+    <p class="c-entry__text">
+      {{#if tweet}}
+        {{{parseTweet}}}
+      {{else}}
+        {{text}}
+      {{/if}}
+      {{getImage}}
+    </p>
+    <div class="c-entry__meta">
+      {{#if tweet.user.profile_image_url_https}}
+        <img src="{{tweet.user.profile_image_url_https}}" alt="" class="c-entry__meta__elem c-entry__meta__image">
+      {{/if}}
+      <span class="c-entry__meta__elem c-entry__meta__name">
+        {{name}}
+      </span>
+      {{#if tweet.user.screen_name}}
+        <span class="c-entry__meta__elem c-entry__meta__screenname">
+          @{{tweet.user.screen_name}}
+        </span>
+      {{/if}}
+    </div>
   </article>
 </template>
 

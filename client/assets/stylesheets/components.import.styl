@@ -29,3 +29,43 @@
 .c-result
   width 100%
   max-width 300px
+
+.c-entry
+  margin-top 30px
+  padding-bottom 15px
+  border-bottom 1px solid #ccc
+  clear both
+  word-wrap break-word
+
+  .c-entry__image img
+    max-width 100%
+
+  &__meta
+    height meta-height
+    line-height meta-height
+    clear both
+
+    &__elem
+      display block
+      float left
+      height meta-height
+      margin-right 5px
+
+    &__screenname
+      font-style italic
+
+    &__name
+      font-weight bold
+
+    &__image
+      max-height meta-height
+      border-radius: 3px
+
+  &__text
+    font-size 17px
+
++above(mobile)
+  .c-entry--has-image
+
+    .c-entry__content
+      column(3/4)
