@@ -32,7 +32,7 @@ Meteor.methods({
     // collect tweets
     Twit.get('search/tweets',
       {
-        q: '#MTD2015 since:2011-11-11',
+        q: '#MTD2015 OR #askmtd since:2014-09-01',
         count: 20
       },
       // use our apply-method when we recieve the tweets

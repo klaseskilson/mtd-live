@@ -1,6 +1,18 @@
 <template name="question">
+  <section class="c-modal">
+    <form class="js-new-entry">
+      <textarea name="entry" placeholder="Din fråga..."></textarea>
+      <input type="text" name="name" placeholder="Ditt namn...">
+      <button class="button--wide">
+        {{#if loading}}
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+        {{else}}
+          <i class="fa fa-check-circle"></i>
+        {{/if}}
+        Skicka
+      </button>
+    </form>
 
-  <form class="new-entry">
-    <input type="text" name="entry" placeholder="Your question">
-  </form>
+    {{> footer}}
+  </section>
 </template>

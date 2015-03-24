@@ -1,0 +1,34 @@
+input[type="submit"], button, a.button
+  font-family bodyfont
+  display inline-block
+  padding 15px
+  font-size 15px
+  text-transform uppercase
+  letter-spacing 0.13em
+  background-color orange
+  color white
+  cursor pointer
+  border 0
+  border-bottom 3px solid darken(orange, 20%)
+  box-sizing border-box
+
+  &:hover
+    background darken(orange, 5%)
+  &.button--wide
+    width 100%
+    display block
+  .fa
+    margin-right 15px
+
+input[type="text"], textarea
+  width 100%
+  font-family bodyfont
+  padding 15px
+  font-size 15px
+  border 0
+  border-bottom 3px solid lighten(gray, 20%)
+  margin 0 0 15px
+  box-sizing border-box
+
+form
+  margin-bottom 30px

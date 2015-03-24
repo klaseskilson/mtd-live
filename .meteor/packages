@@ -5,6 +5,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
-cryptoquick:stylus-multi
 mrt:twit
 iron:router
+pfafman:font-awesome-4
+cryptoquick:stylus-multi
