@@ -33,5 +33,9 @@ Template.admin_entry.events({
   },
   'click .js-delete': function() {
     Meteor.call('deleteEntry', this._id);
+  },
+  'click .js-set-message': function() {
+    console.log(this);
+    Meteor.call('setMessage', this.text + '<br><small><em>' + this.name + '</em></small>', false);
   }
 });
