@@ -49,6 +49,7 @@ This todo list is not updated since.
 * Add Instagram integration
 * Make images appear nicely
 * Make the twitter/instagram/whatever integration update automatically
+* Move admin url config to config file
 
 ## Screenshots
 
