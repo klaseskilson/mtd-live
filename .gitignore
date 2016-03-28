@@ -1,4 +1,5 @@
-private/conf.json
+# ignore secrets
+settings.json
 
 # ignore webstorm files
 .idea

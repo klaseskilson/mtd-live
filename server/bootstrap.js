@@ -2,7 +2,7 @@ Meteor.startup(function () {
   // code to run on server at startup
 
   // load system conf
-  var conf = JSON.parse(Assets.getText('conf.json'));
+  var conf = Meteor.settings;
 
   // setup twit
   Twit = new TwitMaker({

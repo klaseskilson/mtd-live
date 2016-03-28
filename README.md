@@ -21,29 +21,32 @@ meteor install
 
 To get started, you need an Twitter application and its consumer and application
 keys and secrets. You should then copy
-[`private/conf.example.json`](private/conf.example.json) into `private/conf.json`
+[`settings.example.json`](settings.example.json) into `settings.json`
 and enter the Twitter credentials there.
 
-When Twitter is setup, start the application by running `meteor` in the
+When Twitter is setup, start the application by running `meteor --settings settings.json` in the
 application's root folder.
 
 ### Deploy
 
-Meteor is nice. It comes with built-in support for instant deployment. Simply
-run
+Meteor is nice. It comes with built-in support for instant deployment. Basically,
+you run
 
 ```bash
-meteor deploy whatever-you-choose.meteor.com
+meteor deploy example.com --settings settings.json
 ```
 
-and go to whatever-you-choose.meteor.com in you browser once it's done. I'd
-recommend you change the super secure admin url in
+and go to example.com in you browser once it's done. Read the tips provided in the
+[Meteor Guide](http://guide.meteor.com/deployment.html#galaxy) on how to deploy to
+Meteor Galaxy (which is without doubt the easiest method).
+
+I'd recommend you change the super secure admin url in
 [`lib/router.js`](lib/router.js) before deploying.
 
 ## Todo
 
 The initial idea with this application was to provide the fair with a unified
-social media stream. It later evolved into beeing a tool for the lecture host.
+social media stream. It later evolved into being a tool for the lecture host.
 This todo list is not updated since.
 
 * Add Instagram integration
