@@ -4,13 +4,18 @@ Template.question.events({
     var entry = event.target.entry.value;
     var name = event.target.name.value;
 
-    NonEmptyString = Match.Where(function (x) {
+    var NonEmptyString = Match.Where(function (x) {
       check(x, String);
       return x.length > 4;
     });
 
-    check(entry, NonEmptyString);
-    check(name, NonEmptyString);
+    try {
+      check(entry, NonEmptyString);
+      check(name, NonEmptyString);
+    } catch (e) {
+      console.error(e);
+      return;
+    }
 
     // call to server
     Meteor.call('createEntry', entry, name);
